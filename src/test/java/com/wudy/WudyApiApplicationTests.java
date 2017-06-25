@@ -11,7 +11,7 @@ public class WudyApiApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		System.out.println("build test");
+		System.out.println("build test!");
 	}
 
 }
