@@ -9,8 +9,10 @@ import lombok.Getter;
 public enum OpenGraphProperties {
 	TITLE("title", "제목"),
 	TYPE("type", "타입"),
-	DESCRIPTION("description", "설명"),
-	AUTHOR("article:author", "저자");
+	DESCRIPTION("description", "요약"),
+	AUTHOR("article:author", "저자"),
+	THUMNAIL("image", "썸네일");
+
 
 	@Getter
 	private String value;

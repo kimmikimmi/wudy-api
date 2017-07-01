@@ -11,5 +11,5 @@ import java.util.List;
 public interface WebParsingService {
 	ArticleDto getArticleInfo(final String url) throws Exception;
 
-	List<ArticleDto> getArticleInfos(final List<String> urls );
+	List<ArticleDto> getArticleInfoList(final List<String> urls );
 }

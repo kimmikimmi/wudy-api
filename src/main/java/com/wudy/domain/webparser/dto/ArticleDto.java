@@ -15,11 +15,11 @@ public class ArticleDto {
 
 	String title;
 	String summary;
-	String description;
+	String body;
 	String category;
-	String creator;
 	String author;
 	String url;
-	String modifiedAt;
+	String modifiedDate;
+	String createdDate;
 	String thumbnail;
 }

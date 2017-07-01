@@ -20,13 +20,13 @@ import java.net.URLConnection;
 public class WebParsingFactory {
 
 	@Setter
-	String urlPath;
+	private String urlPath;
 
 
 	/**
 	 * @return html full content
 	 */
-	public String getHtmlContent() {
+	private String getHtmlContent() {
 		String pageContents;
 		StringBuilder contents = new StringBuilder();
 
@@ -48,9 +48,28 @@ public class WebParsingFactory {
 		} catch (Exception e) {
 			log.error("An exception occurs!{}", e);
 		}
-
 		return contents.toString();
 	}
+
+	private String getContentWithoutTags(String target) {
+		return target.replaceAll("<[^>]*>", "");
+	}
+
+	public String getBody() {
+		String content = getHtmlContent().split("size5")[1].split("enter")[0];
+		content = content.replaceAll("-->|enter", "").replace("/^ /gi", "");
+
+		return refinedData(getContentWithoutTags(content));
+	}
+
+	public String getCreatedDate() {
+		return getHtmlContent().split("기사입력<em>")[1].split("</em>")[0];
+	}
+
+	public String getModifiedDate() {
+		return getHtmlContent().split("최종수정<em>")[1].split("</em>")[0];
+	}
+
 
 	/**
 	 *

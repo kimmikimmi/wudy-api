@@ -26,7 +26,7 @@ public class BackController {
 	@RequestMapping(value = "/file", method = RequestMethod.POST)
 	public WudyResponse saveUrlList(@RequestParam MultipartFile urlList) throws IOException {
 
-		System.out.println(urlList);
+		log.debug("fileName :  {}", urlList.getName());
 
 		File dest = new File(FILE_PATH_LOCAL + FILE_NAME);
 		urlList.transferTo(dest);

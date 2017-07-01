@@ -28,11 +28,11 @@ public class HelenService {
 
 	public List<ArticleDto> getArticleListInHorizontal(Long timeStamp) {
 		List<String> urlList = richWudy.getUrlListInHorizontal(HORIZONTAL_SIZE, timeStamp);
-		return webParsingService.getArticleInfos(urlList);
+		return webParsingService.getArticleInfoList(urlList);
 	}
 
 	public List<ArticleDto> getArticleListInVertical(String url, Long timeStamp) {
 		List<String> urlList = richWudy.getUrlListInVertical(url, VERTICAL_SIZE, timeStamp);
-		return webParsingService.getArticleInfos(urlList);
+		return webParsingService.getArticleInfoList(urlList);
 	}
 }
