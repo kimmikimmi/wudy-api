@@ -1,6 +1,7 @@
 package com.wudy.domain.webparser.dao;
 
 import com.google.common.collect.Lists;
+import com.wudy.domain.webparser.dto.ArticleDto;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,12 +14,12 @@ import java.util.List;
 public class RichWudyImpl implements RichWudy{
 
 	@Override
-	public List<String> getUrlListInHorizontal(int size, Long timeStamp) {
+	public List<ArticleDto> getUrlListInHorizontal(int size, Long timeStamp) {
 		return Lists.newArrayList();
 	}
 
 	@Override
-	public List<String> getUrlListInVertical(String url, int size, Long timeStamp) {
+	public List<ArticleDto> getUrlListInVertical(String url, int size, Long timeStamp) {
 		return Lists.newArrayList();
 	}
 }

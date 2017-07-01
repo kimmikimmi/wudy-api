@@ -69,26 +69,8 @@ public class WebParsingServiceImpl implements WebParsingService {
 
 	public List<ArticleDto> getArticleInfoList(final List<String> urls ) {
 		return urls.stream()
-			.filter(this::isValidUrl)
 			.map(this::getArticleInfo)
 			.collect(Collectors.toList());
 
-	}
-
-	/**
-	 * 실제로 정제되지 않은 url이 들어오는 경우도 있으므로 수정이 필요.
-	 * @param url
-	 * @return 가치가 있는 url 여부
-	 */
-	private boolean isValidUrl(final String url) {
-		return !StringUtils.isEmpty(isValidUrl(url)) &&
-			url.contains("entertain.naver.com") &&
-			url.contains("oid") &&
-			url.contains("aid");
-	}
-
-	public static void main(String[] args) throws Exception {
-		WebParsingServiceImpl webParsingService = new WebParsingServiceImpl(new WebParsingFactory());
-		webParsingService.getArticleInfo("http://entertain.naver.com/read?oid=312&aid=0000237088");
 	}
 }

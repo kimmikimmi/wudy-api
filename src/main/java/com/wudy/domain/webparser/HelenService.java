@@ -1,5 +1,6 @@
 package com.wudy.domain.webparser;
 
+import com.google.common.collect.Lists;
 import com.wudy.domain.webparser.dao.RichWudy;
 import com.wudy.domain.webparser.dto.ArticleDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +27,13 @@ public class HelenService {
 		this.richWudy = richWudy;
 	}
 
+	//TODO : hadoop client 에서 데이터를 읽어와
 	public List<ArticleDto> getArticleListInHorizontal(Long timeStamp) {
-		List<String> urlList = richWudy.getUrlListInHorizontal(HORIZONTAL_SIZE, timeStamp);
-		return webParsingService.getArticleInfoList(urlList);
+		return richWudy.getUrlListInHorizontal(HORIZONTAL_SIZE, timeStamp);
 	}
 
 	public List<ArticleDto> getArticleListInVertical(String url, Long timeStamp) {
-		List<String> urlList = richWudy.getUrlListInVertical(url, VERTICAL_SIZE, timeStamp);
-		return webParsingService.getArticleInfoList(urlList);
+		return richWudy.getUrlListInVertical(url, VERTICAL_SIZE, timeStamp);
+
 	}
 }

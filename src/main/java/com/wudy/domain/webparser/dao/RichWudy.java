@@ -1,5 +1,7 @@
 package com.wudy.domain.webparser.dao;
 
+import com.wudy.domain.webparser.dto.ArticleDto;
+
 import java.util.List;
 
 /**
@@ -8,7 +10,7 @@ import java.util.List;
  */
 public interface RichWudy {
 
-	List<String> getUrlListInHorizontal(int size, Long timeStamp);
+	List<ArticleDto> getUrlListInHorizontal(int size, Long timeStamp);
 
-	List<String> getUrlListInVertical(String url, int size, Long timeStamp);
+	List<ArticleDto> getUrlListInVertical(String url, int size, Long timeStamp);
 }
