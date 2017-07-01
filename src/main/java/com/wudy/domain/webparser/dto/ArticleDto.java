@@ -21,4 +21,5 @@ public class ArticleDto {
 	String author;
 	String url;
 	String modifiedAt;
+	String thumbnail;
 }

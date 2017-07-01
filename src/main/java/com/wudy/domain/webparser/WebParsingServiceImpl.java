@@ -1,5 +1,6 @@
 package com.wudy.domain.webparser;
 
+import com.wudy.domain.webparser.dao.RichWudy;
 import com.wudy.domain.webparser.dto.ArticleDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class WebParsingServiceImpl implements WebParsingService {
 	@Autowired
 	public WebParsingServiceImpl(WebParsingFactory webParsingFactory) {
 		this.webParsingFactory = webParsingFactory;
+
 	}
 
 	public ArticleDto getArticleInfo(final String url)  {

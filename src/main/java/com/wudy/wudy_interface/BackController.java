@@ -18,7 +18,7 @@ import java.io.IOException;
 @Slf4j
 @RestController
 @RequestMapping(value = "/article")
-public class ArticleBackController {
+public class BackController {
 
 	private static final String FILE_PATH_LOCAL = "/Users/Jaden/";
 	private static final String FILE_NAME = "article";
