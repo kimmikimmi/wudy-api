@@ -50,6 +50,9 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile 'net.sourceforge.htmlcleaner:htmlcleaner:2.21'
+    compile 'org.apache.commons:commons-lang3:3.5'
+    compile group: 'com.google.guava', name: 'guava', version: '22.0'
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
