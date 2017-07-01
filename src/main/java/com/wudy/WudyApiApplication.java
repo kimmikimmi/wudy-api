@@ -4,25 +4,24 @@ import com.wudy.common.WudyResponse;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
 
 @SpringBootApplication
 @RestController
 public class WudyApiApplication {
 
-	@RequestMapping("/")
-	public String home() {
-		return "Hello Docker World v1";
-	}
+	@RequestMapping(value = "/article", method = RequestMethod.POST)
+	public WudyResponse article(@RequestParam MultipartFile urlList) throws IOException {
+		System.out.println(urlList);
+		String uuid = UUID.fromString(urlList.getOriginalFilename()).toString();
+		File dest = new File("/wudy-api/"+uuid);
 
-	@RequestMapping(value = "/hello", method = RequestMethod.POST)
-	public WudyResponse getTempDto(@RequestBody List<String> urlList) {
-		return new WudyResponse();
-	}
+		urlList.transferTo(dest);
 
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
-	public WudyResponse getTempDto(@RequestParam String name) {
 		return new WudyResponse();
 	}
 
