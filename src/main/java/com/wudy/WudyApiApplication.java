@@ -1,5 +1,6 @@
 package com.wudy;
 
+import com.wudy.common.WudyResponse;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +17,13 @@ public class WudyApiApplication {
 	}
 
 	@RequestMapping(value = "/hello", method = RequestMethod.POST)
-	public TempDto getTempDto(@RequestBody List<String> urlList) {
-		return new TempDto();
+	public WudyResponse getTempDto(@RequestBody List<String> urlList) {
+		return new WudyResponse();
 	}
 
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
-	public TempDto getTempDto(@RequestParam String name) {
-		return new TempDto();
+	public WudyResponse getTempDto(@RequestParam String name) {
+		return new WudyResponse();
 	}
 
 	public static void main(String[] args) {
