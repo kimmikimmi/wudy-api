@@ -1,19 +1,24 @@
 package com.wudy.wudy_interface;
 
-import com.wudy.common.WudyResponse;
-import com.wudy.domain.webparser.BeckyService;
-import com.wudy.domain.webparser.dao.RichWudy;
-import com.wudy.domain.webparser.dto.ArticleDto;
-import lombok.extern.slf4j.Slf4j;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+import com.wudy.hbase.constants.HBaseTableInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
-import java.util.List;
+import com.wudy.common.WudyResponse;
+import com.wudy.domain.webparser.BeckyService;
+import com.wudy.domain.webparser.dao.RichWudy;
+import com.wudy.domain.webparser.dto.ArticleDto;
+import com.wudy.hbase.WudyHBaseClient;
 
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author : Jaden
@@ -23,6 +28,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/article")
 public class BackController {
+	@Autowired
+	WudyHBaseClient hBaseClient;
 
 	private static final String FILE_PATH_LOCAL = "/Users/Jaden/";
 	private static final String FILE_NAME = "article";
@@ -44,16 +51,13 @@ public class BackController {
 		urlFile.transferTo(dest);
 		log.info("file write success {}", dest.getAbsolutePath());
 
-
 		List<ArticleDto> articles = beckyService.getArticleList(dest);
 		/**
 		 * articles를  hbase 에 데이터를 적재하는 로직이 들어가야 한다.
 		 */
-
-
+		hBaseClient.put(HBaseTableInfo.ARTICLE, "article", articles);
 
 		return new WudyResponse();
 	}
-
 
 }
