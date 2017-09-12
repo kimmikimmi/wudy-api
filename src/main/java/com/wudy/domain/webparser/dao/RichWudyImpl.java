@@ -1,6 +1,7 @@
 package com.wudy.domain.webparser.dao;
 
 import com.google.common.collect.Lists;
+import com.wudy.domain.webparser.WebParsingService;
 import com.wudy.domain.webparser.dto.ArticleDto;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +16,7 @@ public class RichWudyImpl implements RichWudy{
 
 	@Override
 	public List<ArticleDto> getUrlListInHorizontal(int size, Long timeStamp) {
+
 		return Lists.newArrayList();
 	}
 
