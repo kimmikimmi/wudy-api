@@ -22,13 +22,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.GenericTypeResolver;
-import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Maps;
 import com.wudy.hbase.constants.HBaseTableInfo;
 import com.wudy.hbase.serializer.HBaseSerializer;
 
-@Component
+//@Component
 public class WudyHBaseClient implements InitializingBean, DisposableBean, WudyHBaseTemplate {
 	@Value("${zookeeper.connect.string}")
 	String quorumString;
